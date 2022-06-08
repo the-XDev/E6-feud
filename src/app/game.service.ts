@@ -94,6 +94,11 @@ export class GameService {
 
   }
 
+  calculatePoints(tag : Tag) : number{
+    var points = Math.round((1.0/tag.count)*200000);
+    return points;
+  }
+
   searchAndShowTag(tagName: string){
     tagName = tagName.toLowerCase();
     var matched: string[]=[];
@@ -113,49 +118,57 @@ export class GameService {
     for (let tag of this.tags_general) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
-        matched.push(tag.originalTagName);
+        var points = this.calculatePoints(tag);
+        matched.push(tag.originalTagName + " (+" + points + ")");
       }
     }
     for (let tag of this.tags_species) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
-        matched.push(tag.originalTagName);
+        var points = this.calculatePoints(tag);
+        matched.push(tag.originalTagName + " (+" + points + ")");
       }
     }
     for (let tag of this.tags_character) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
-        matched.push(tag.originalTagName);
+        var points = this.calculatePoints(tag);
+        matched.push(tag.originalTagName + " (+" + points + ")");
       }
     }
     for (let tag of this.tags_copyright) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
-        matched.push(tag.originalTagName);
+        var points = this.calculatePoints(tag);
+        matched.push(tag.originalTagName + " (+" + points + ")");
       }
     }
     for (let tag of this.tags_artist) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
-        matched.push(tag.originalTagName);
+        var points = this.calculatePoints(tag);
+        matched.push(tag.originalTagName + " (+" + points + ")");
       }
     }
     for (let tag of this.tags_invalid) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
-        matched.push(tag.originalTagName);
+        var points = this.calculatePoints(tag);
+        matched.push(tag.originalTagName + " (+" + points + ")");
       }
     }
     for (let tag of this.tags_lore) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
-        matched.push(tag.originalTagName);
+        var points = this.calculatePoints(tag);
+        matched.push(tag.originalTagName + " (+" + points + ")");
       }
     }
     for (let tag of this.tags_meta) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
-        matched.push(tag.originalTagName);
+        var points = this.calculatePoints(tag);
+        matched.push(tag.originalTagName + " (+" + points + ")");
       }
     }
     return matched;
