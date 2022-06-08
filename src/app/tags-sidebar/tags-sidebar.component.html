@@ -1,0 +1,55 @@
+<aside id="sidebar">
+    <section id="blacklist-box" class="sidebar-blacklist" style="display: none;">
+        <div class="blacklist-header">
+            <h1 id="blacklist-collapse" class="hidden">Blacklisted<span id="blacklisted-count"></span></h1>
+            <div class="blacklist-help"><a href="/help/blacklist">(help)</a></div>
+        </div>
+        <ul id="blacklist-list" style="display: none;"></ul>
+        <a id="disable-all-blacklists" style="" href="#">Disable all</a>
+        <a id="re-enable-all-blacklists" style="display: none;" href="#">Re-enable all</a>
+    </section>
+
+
+    <section id="tag-list">
+        <!-- TODO: Lock off these extra items? -->
+        <h2 class="artist-tag-list-header tag-list-header" data-category="artist">Artists</h2>
+        <ul class="artist-tag-list">
+            <li class="category-1" *ngFor="let tag of gameService.tags_artist">
+                <app-tag [tag]="tag"></app-tag>
+            </li>
+        </ul>
+        <h2 class="copyright-tag-list-header tag-list-header" data-category="copyright">Copyrights</h2>
+        <ul class="copyright-tag-list">
+            <li class="category-3" *ngFor="let tag of gameService.tags_copyright">
+                <app-tag [tag]="tag"></app-tag>
+            </li>
+        </ul>
+
+        <h2 class="copyright-tag-list-header tag-list-header" data-category="copyright">Characters</h2>
+        <ul class="copyright-tag-list">
+            <li class="category-4" *ngFor="let tag of gameService.tags_character">
+                <app-tag [tag]="tag"></app-tag>
+            </li>
+        </ul>
+
+        <h2 class="species-tag-list-header tag-list-header" data-category="species">Species</h2>
+        <ul class="species-tag-list">
+            <li class="category-5" *ngFor="let tag of gameService.tags_species">
+                <app-tag [tag]="tag"></app-tag>
+            </li>
+        </ul>
+        <h2 class="general-tag-list-header tag-list-header" data-category="general">General</h2>
+        <ul class="general-tag-list">
+            <li class="category-0" *ngFor="let tag of gameService.tags_general">
+                <app-tag [tag]="tag"></app-tag>
+            </li>
+        </ul>
+        <h2 class="meta-tag-list-header tag-list-header" data-category="meta">Meta</h2>
+        <ul class="meta-tag-list">
+            <li class="category-7" *ngFor="let tag of gameService.tags_meta">
+                <app-tag [tag]="tag"></app-tag>
+            </li>
+        </ul>
+    </section>
+
+</aside>

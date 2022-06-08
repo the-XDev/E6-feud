@@ -1,0 +1,35 @@
+<section id="comments">
+    <div class="comments-for-post">
+        <div class="row notices">
+        </div>
+
+        <div class="list-of-comments">
+            <article class="comment comment-post-grid">
+                <div class="author-info">
+
+                </div>
+                <div class="content">
+                    <div class="body dtext-container">
+                        <div class="styled-dtext" style="padding:2em">
+                            <input type="text" [(ngModel)]="currentTypedGuess" name="currentTypedGuess" (keyup.enter)="tryGuess()"> &nbsp;
+                            <button (click)="tryGuess()">Guess!</button>&nbsp;
+                            <button (click)="gameService.showSauce()">Just show me the sauce</button>
+                            <br>
+                            <p *ngIf="!gameService.sauceShown">{{lastMatched}}</p>
+                            <a href="https://e621.net/posts/{{gameService.currentPost?.id}}" *ngIf="gameService.sauceShown">Go to post</a>
+                            <br>
+                            <div style="display: flex">
+                                <div *ngFor="let item of [].constructor(gameService.maxTries); let i = index">
+                                    <h2 *ngIf="gameService.tries_left>i" style="color: rgba(138, 138, 138, 0.705);">X&nbsp;</h2>
+                                    <h2 *ngIf="!(gameService.tries_left>i)" style="color: rgba(184, 0, 0, 0.705);">X&nbsp;</h2>
+                                </div>
+                            </div>
+                            <br>
+                            <button *ngIf="gameService.tries_left<=0 || gameService.sauceShown" (click)="gameService.startGame(false)">Play again</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
