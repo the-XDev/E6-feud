@@ -11,6 +11,7 @@ import {HttpClientModule } from "@angular/common/http";
 import { ImageDisplayComponent } from './image-display/image-display.component';
 import { GuessAreaComponent } from './guess-area/guess-area.component';
 import { FormsModule } from '@angular/forms';
+import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     TagsSidebarComponent,
     TagComponent,
     ImageDisplayComponent,
-    GuessAreaComponent
+    GuessAreaComponent,
+    LoadingScreenComponent
   ],
   imports: [
     BrowserModule,

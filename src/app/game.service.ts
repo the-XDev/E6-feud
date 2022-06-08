@@ -3,6 +3,7 @@ import { Post } from 'src/DTO/post';
 import { Tag } from 'src/DTO/tag';
 import { Blacklist } from './blacklist';
 import { E621Service } from './e621.service';
+import { LoadingStatusService } from './loading-status.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +24,7 @@ export class GameService {
   tags_lore : Tag[] = [];
   tags_meta : Tag[] = [];
 
-  constructor(private e6service : E621Service) { }
+  constructor(private e6service : E621Service,private loadingService : LoadingStatusService) { }
 
   startGame(nsfw : boolean) : any {
     this.gameRunning = true;
@@ -37,7 +38,10 @@ export class GameService {
     this.tags_meta = [];
     this.sauceShown=false;
     this.tries_left=5;
+
+    this.loadingService.loading=true;
     this.e6service.getSinglePost("rating:safe order:random "+Blacklist.getStr()).subscribe(post=>{
+      this.loadingService.loading=false;
       this.currentPost = post.posts[0];
       console.log(post);
       for (let category of ["general","species","character","copyright","artist","invalid","lore","meta"]) {
