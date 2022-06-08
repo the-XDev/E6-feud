@@ -11,7 +11,7 @@ export class Tag{
         this.count = count;
         this.isRevealed = isRevealed;
         // replace all characters except - and _ with █
-        this.str = str.replace(/[^-_]/g,"█");
+        this.str = str.replace(/[^-_()/\\']/g,"█");
 
     }
 

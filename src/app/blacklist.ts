@@ -1,5 +1,5 @@
 export class Blacklist{
-    private static blacklist=[
+    private static global_blacklist=[
         "gore",
         "scat",
         "watersports",
@@ -31,10 +31,17 @@ export class Blacklist{
         "feral",
         "fart_fetish",
         "birth",
-        "parent_and_child",
+        "parent_and_child","animated","flash"
       ];
 
+      private static sfw_blacklist=[
+          "pubes",
+          "zentai",
+          "nipples",
+          "foot_focus"
+      ]
+
     static getStr():string{
-        return "-"+this.blacklist.join(" -");
+        return "-"+this.global_blacklist.join(" -");
     }
 }
