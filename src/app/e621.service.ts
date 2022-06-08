@@ -15,4 +15,8 @@ export class E621Service {
     // for random, add the order:random tag
     return this.http.get<PostsRoot>('https://e621.net/posts.json?tags='+tags+'&limit=1');
   }
+
+  getTagAliases(tag : string) : Observable<any[]>{ // wip
+    return this.http.get<any[]>('https://e621.net/tag_aliases?format=json&search[name_matches]='+tag+'&search[status]=active');
+  }
 }

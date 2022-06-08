@@ -19,6 +19,9 @@ export class GuessAreaComponent implements OnInit {
   }
 
   tryGuess(){
+    if (this.gameService.tries_left<=0 || this.gameService.sauceShown) {
+      return;
+    }
     var guess = this.gameService.searchAndShowTag(this.currentTypedGuess);
     this.currentTypedGuess="";
     if (guess.length>0){
@@ -30,6 +33,9 @@ export class GuessAreaComponent implements OnInit {
     
   }
 
-
+  playAgain(){
+    this.lastMatched="";
+    this.gameService.startGame(false);
+  }
 
 }

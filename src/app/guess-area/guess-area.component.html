@@ -11,7 +11,7 @@
                 <div class="content">
                     <div class="body dtext-container">
                         <div class="styled-dtext" style="padding:2em">
-                            <input type="text" [(ngModel)]="currentTypedGuess" name="currentTypedGuess" (keyup.enter)="tryGuess()"> &nbsp;
+                            <input selected type="text" [(ngModel)]="currentTypedGuess" name="currentTypedGuess" (keyup.enter)="tryGuess()"> &nbsp;
                             <button (click)="tryGuess()">Guess!</button>&nbsp;
                             <button (click)="gameService.showSauce()">Just show me the sauce</button>
                             <br>
@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                             <br>
-                            <button *ngIf="gameService.tries_left<=0 || gameService.sauceShown" (click)="gameService.startGame(false)">Play again</button>
+                            <button *ngIf="gameService.tries_left<=0 || gameService.sauceShown" (click)="playAgain()">Play again</button>
                         </div>
                     </div>
                 </div>

@@ -99,7 +99,8 @@ export class GameService {
     var matched: string[]=[];
     matched = matched.concat(this.searchTagExact(tagName));
     matched = matched.concat(this.searchTagExact(tagName.replace("e","é")));
-    matched = matched.concat(this.searchTagStartsWith(tagName+"_"));
+    matched = matched.concat(this.searchTagStartsWith(tagName+"_("));
+    // todo: tag alias support?
     var matchedUnique = [...new Set(matched)];
     return matchedUnique;
   }
