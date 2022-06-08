@@ -97,10 +97,11 @@ export class GameService {
   searchAndShowTag(tagName: string){
     tagName = tagName.toLowerCase();
     var matched: string[]=[];
-    matched.concat(this.searchTagExact(tagName));
-    matched.concat(this.searchTagExact(tagName.replace("e","é")));
-    matched.concat(this.searchTagStartsWith(tagName+"_"));
-    return matched;
+    matched = matched.concat(this.searchTagExact(tagName));
+    matched = matched.concat(this.searchTagExact(tagName.replace("e","é")));
+    matched = matched.concat(this.searchTagStartsWith(tagName+"_"));
+    var matchedUnique = [...new Set(matched)];
+    return matchedUnique;
   }
 
   searchTagExact(tagName: string) {
