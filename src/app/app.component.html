@@ -15,4 +15,5 @@
 
 </header>
 
-<router-outlet></router-outlet>
+<router-outlet *ngIf="!loadingState.loading"></router-outlet>
+<app-loading-screen *ngIf="loadingState.loading"></app-loading-screen>

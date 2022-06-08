@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingStatusService } from './loading-status.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'e6-feud';
+
+  constructor(public loadingState : LoadingStatusService) {
+  }
 }
