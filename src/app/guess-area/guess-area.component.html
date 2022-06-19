@@ -12,8 +12,9 @@
                     <div class="body dtext-container">
                         <div class="styled-dtext" style="padding:2em">
                             <input selected type="text" [(ngModel)]="currentTypedGuess" name="currentTypedGuess" (keyup.enter)="tryGuess()"> &nbsp;
-                            <button (click)="tryGuess()">Guess!</button>&nbsp;
-                            <button (click)="gameService.showSauce()">Just show me the sauce</button>
+                            <button (click)="tryGuess()" [disabled]="gameService.tries_left<=0 || gameService.sauceShown">Guess!</button>&nbsp;
+                            <button (click)="gameService.showSauce()" [disabled]="gameService.sauceShown">Just show me the sauce</button>&nbsp;
+                            <button (click)="playAgain()" [disabled]="gameService.tries_left<=0 || gameService.sauceShown">Skip</button>
                             <br>
                             <p *ngIf="!gameService.sauceShown">{{lastMatched}}</p>
                             <a href="https://e621.net/posts/{{gameService.currentPost?.id}}" *ngIf="gameService.sauceShown">Go to post</a>
