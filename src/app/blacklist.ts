@@ -32,6 +32,7 @@ export class Blacklist{
         "fart_fetish",
         "birth",
         "parent_and_child",
+        "comic",
       ];
 
     static getStr():string{
