@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                             <br> Points:
-                            <div class="points_counter"></div>
+                            <div class="points_counter" style="--game_points:{{gameService.points}};"></div>
                             <button *ngIf="gameService.tries_left<=0 || gameService.sauceShown" (click)="playAgain()">Play again</button>
                         </div>
                     </div>

@@ -127,48 +127,56 @@ export class GameService {
     for (let tag of this.tags_general) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_species) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_character) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_copyright) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_artist) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_invalid) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_lore) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_meta) {
       if (tag.originalTagName == tagName) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
@@ -183,48 +191,56 @@ export class GameService {
     for (let tag of this.tags_general) {
       if (tag.originalTagName.startsWith(tagName)) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_species) {
       if (tag.originalTagName.startsWith(tagName)) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_character) {
       if (tag.originalTagName.startsWith(tagName)) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_copyright) {
       if (tag.originalTagName.startsWith(tagName)) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_artist) {
       if (tag.originalTagName.startsWith(tagName)) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_invalid) {
       if (tag.originalTagName.startsWith(tagName)) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_lore) {
       if (tag.originalTagName.startsWith(tagName)) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
     for (let tag of this.tags_meta) {
       if (tag.originalTagName.startsWith(tagName)) {
         tag.reveal();
+        this.addPointsForTag(tag.count);
         matched.push(tag.originalTagName);
       }
     }
@@ -234,6 +250,24 @@ export class GameService {
   showSauce(){
     this.sauceShown = true;
     this.showAllTags();
+  }
+
+  addPointsForTag(x : number){
+    var r = 1000;
+    var h = 0.004;
+    var v = 30;
+    var m = 36;
+    var c = 0.9995;
+    var b = 12;
+    var p =3;
+    var g = 0;
+
+    var n = 1-(g/p);
+
+    var x_rnh = ((x-(r*n)))*h;
+    var t1 = ((x_rnh/(1+Math.abs(x_rnh)))*v)+v;
+    var t2=(m*n*Math.pow(c,x))+b;
+    this.points+=Math.floor(t1+t2);
   }
 }
 

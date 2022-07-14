@@ -4,7 +4,7 @@ import { GameService } from '../game.service';
 @Component({
   selector: 'app-image-display',
   templateUrl: './image-display.component.html',
-  styleUrls: ['./image-display.component.css']
+  styleUrls: ['./image-display.component.scss']
 })
 export class ImageDisplayComponent implements OnInit {
 

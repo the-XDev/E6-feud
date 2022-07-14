@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-guess-area',
   templateUrl: './guess-area.component.html',
-  styleUrls: ['./guess-area.component.css']
+  styleUrls: ['./guess-area.component.scss']
 })
 export class GuessAreaComponent implements OnInit {
 
@@ -12,10 +12,10 @@ export class GuessAreaComponent implements OnInit {
   lastMatched="";
   
   constructor(public gameService : GameService) {
-      
    }
 
   ngOnInit(): void {
+    
   }
 
   tryGuess(){

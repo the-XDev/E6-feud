@@ -1,0 +1,14 @@
+@property --game_points {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+}
+
+.points_counter {
+    transition: --game_points 1s;
+    counter-set: game_points var(--game_points);
+}
+
+.points_counter::after {
+    content: counter(game_points);
+}
