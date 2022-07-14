@@ -14,6 +14,7 @@ export class GameService {
   gameRunning : boolean = false;
   tries_left = 0;
   points=0;
+  lastAddedPoints=0;
   sauceShown = false;
   currentPost? : Post;
   tags_general : Tag[] = [];
@@ -263,11 +264,11 @@ export class GameService {
     var g = 0;
 
     var n = 1-(g/p);
-
     var x_rnh = ((x-(r*n)))*h;
-    var t1 = ((x_rnh/(1+Math.abs(x_rnh)))*v)+v;
+    var t1 = -((x_rnh/(1+Math.abs(x_rnh)))*v)+v;
     var t2=(m*n*Math.pow(c,x))+b;
-    this.points+=Math.floor(t1+t2);
+    this.lastAddedPoints=Math.floor(t1+t2);
+    this.points+=this.lastAddedPoints;
   }
 }
 

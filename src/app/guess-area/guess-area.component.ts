@@ -25,7 +25,7 @@ export class GuessAreaComponent implements OnInit {
     var guess = this.gameService.searchAndShowTag(this.currentTypedGuess);
     this.currentTypedGuess="";
     if (guess.length>0){
-      this.lastMatched="Last correct guess: "+guess.join(", ");
+      this.lastMatched="Last correct guess: "+guess.join(", ")+" (+"+this.gameService.lastAddedPoints+" pts)";
     }else{
       this.lastMatched="";
       this.gameService.tries_left--;
