@@ -25,7 +25,8 @@
                                     <h2 *ngIf="!(gameService.tries_left>i)" style="color: rgba(184, 0, 0, 0.705);">X&nbsp;</h2>
                                 </div>
                             </div>
-                            <br>
+                            <br> Points:
+                            <div class="points_counter"></div>
                             <button *ngIf="gameService.tries_left<=0 || gameService.sauceShown" (click)="playAgain()">Play again</button>
                         </div>
                     </div>

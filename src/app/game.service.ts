@@ -13,6 +13,7 @@ export class GameService {
 
   gameRunning : boolean = false;
   tries_left = 0;
+  points=0;
   sauceShown = false;
   currentPost? : Post;
   tags_general : Tag[] = [];
@@ -41,31 +42,40 @@ export class GameService {
 
     this.loadingService.loading=true;
     this.e6service.getSinglePost("rating:safe order:random "+Blacklist.getStr()).subscribe(post=>{
-      this.loadingService.loading=false;
+      
       this.currentPost = post.posts[0];
-      console.log(post);
-      for (let category of ["general","species","character","copyright","artist","invalid","lore","meta"]) {
-        for (let tag of (this.currentPost.tags as any)[category]) {
-          let newTag : Tag = new Tag(tag,category,0,false);
-          if (category == "general") {
-            this.tags_general.push(newTag);
-          } else if (category == "species") {
-            this.tags_species.push(newTag);
-          } else if (category == "character") {
-            this.tags_character.push(newTag);
-          } else if (category == "copyright") {
-            this.tags_copyright.push(newTag);
-          } else if (category == "artist") {
-            this.tags_artist.push(newTag);
-          } else if (category == "invalid") {
-            this.tags_invalid.push(newTag);
-          } else if (category == "lore") {
-            this.tags_lore.push(newTag);
-          } else if (category == "meta") {
-            this.tags_meta.push(newTag);
+      this.e6service.getPostTagCounts(this.currentPost.id).subscribe(aaa=>{
+        for (let category of ["general","species","character","copyright","artist","invalid","lore","meta"]) {
+          for (let tag of (this.currentPost!.tags as any)[category]) {
+            let count=0;
+            for (let tagCountResult of aaa){
+              if ((tagCountResult.tag as string) == tag){
+                count = tagCountResult.count as number
+              }
+            }
+            let newTag : Tag = new Tag(tag,category,count,false);
+            if (category == "general") {
+              this.tags_general.push(newTag);
+            } else if (category == "species") {
+              this.tags_species.push(newTag);
+            } else if (category == "character") {
+              this.tags_character.push(newTag);
+            } else if (category == "copyright") {
+              this.tags_copyright.push(newTag);
+            } else if (category == "artist") {
+              this.tags_artist.push(newTag);
+            } else if (category == "invalid") {
+              this.tags_invalid.push(newTag);
+            } else if (category == "lore") {
+              this.tags_lore.push(newTag);
+            } else if (category == "meta") {
+              this.tags_meta.push(newTag);
+            }
           }
         }
-      }
+
+        this.loadingService.loading=false;
+      });
     });
     
   }

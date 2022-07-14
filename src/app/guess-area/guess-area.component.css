@@ -1,0 +1,11 @@
+@property --game_points {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+}
+
+.points_counter {
+    transition: --game_points 5s;
+    counter-set: num var(--game_points);
+    font: 800 40px system-ui;
+}
